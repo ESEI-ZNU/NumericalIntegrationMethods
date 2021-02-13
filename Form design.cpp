@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <cmath>
+#define f(x) exp(-x*-x)
 using namespace std;
 
 int main()
