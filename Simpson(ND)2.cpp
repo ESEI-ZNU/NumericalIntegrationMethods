@@ -2,37 +2,39 @@
 #include<cmath>
 using namespace std;
 
-float f(float x)
+double f(double x)
 {
-	return exp(-x * -x);
+	return exp(-x * -x); 
 }
 
-float simpson(float a, float b, int n)
-{
-	float h, x[10], sum = 0;
-	int j;
-	h = (b - a) / n;
-	x[0] = a;
-	for (j = 1; j <= n; j++)
-	{
-		x[j] = a + h * j;
+double simpsonsRule(double a, double b, int n) {
+	double h = 0; 
+	double ifx = 0;
+
+	h = abs(b - a) / n;
+
+	ifx = ifx + f(a) + f(b); 
+
+	for (double i = a + h; i < b; i++) {
+		ifx = ifx + (4 * f(i));
 	}
 
-	for (j = 1; j <= n / 2; j++)
-	{
-		sum += f(x[2 * j - 2]) + 4 * f(x[2 * j - 1]) + f(x[2 * j]);
+	for (double j = a + (2 * h); j < b; j++) {
+		ifx = ifx + (2 * f(j));
 	}
 
-	return sum * h / 3;
+	ifx = ifx * h / 3; //розрахункова формула Сімпсона при інтегруванні на відрізку [a, b]
+	return ifx;
 }
 
-int main()
-{
+double mainSimpson() {
 	int choose;
-	cout << "Task: to implement methods of numerical integration on a user-specified interval." << endl << "Simpson's method." << endl;
+
+	cout << "Task: to implement methods of numerical integration on a user-specified interval." << endl << "Simpson's method." << endl; 
+	
 	do {
-		float a, b;
-		int n = 2;
+		double a, b; 
+		int n = 2; 
 		cout << "\nEnter a value for the left border: ";
 		cin >> a;
 		cout << endl << "Enter a value for the right border: ";
@@ -41,14 +43,23 @@ int main()
 		{
 			cout << "The left border must be less than the right." << endl << "Enter new value: ";
 			cin >> b;
-		}
-		if (n % 2 == 0)
-			cout << endl << "The definite integral value: " << simpson(a, b, n) << endl;
+		} 
+		if (n % 2 == 0) 
+			cout << endl << "The definite integral value: " << simpsonsRule(a, b, n) << endl;
 		else
 			cout << "Error! " << "The value must be paired." << endl;
-		cout << "\nDo you want to start over?" << endl;
+		cout << "\nDo you want to start over?" << endl; 
 		cout << "1) - Yes, 2) - No" << endl;
 		cout << "Your choice: ";
 		cin >> choose;
 	} while (choose == 1);
+
+	return choose;
 }
+
+int main()
+{
+	mainSimpson();
+}
+
+
