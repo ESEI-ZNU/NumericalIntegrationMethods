@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <cmath>
+#include <ctime>
 #define f(x) exp(-x*-x)
 using namespace std;
 
@@ -102,6 +103,7 @@ void mainSimpson() {
 int main()
 {
 link:int chooserepit, choosemethod;
+	double timeInSeconds;
 
 
 	cout << "	IntegrationMethods\n" << endl;
@@ -114,19 +116,34 @@ uncorrect: cout << " Your chose: ";
 	if (choosemethod == 1)
 	{
 		cout << "	Method of Rectangles\n" << endl << endl;
+		clock_t startTime = clock();
 		mainRectangles();
+		clock_t endTime = clock();
+		clock_t clockTicksTaken = endTime - startTime;
+		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
+		cout << "Execution of this method took " << timeInSeconds << " seconds" << endl << endl;
 	}
 
 	else if (choosemethod == 2)
 	{
 		cout << "	Method of Trapezium\n" << endl << endl;
+		clock_t startTime = clock();
 		mainTrapezium();
+		clock_t endTime = clock();
+		clock_t clockTicksTaken = endTime - startTime;
+		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
+		cout << "Execution of this method took " << timeInSeconds << " seconds" << endl << endl;
 	}
 
 	else if (choosemethod == 3)
 	{
 		cout << "	Method of Simpson\n" << endl << endl;
+		clock_t startTime = clock();
 		mainSimpson();
+		clock_t endTime = clock();
+		clock_t clockTicksTaken = endTime - startTime;
+		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
+		cout << "Execution of this method took " << timeInSeconds << " seconds" << endl << endl;
 	}
 
 	else
