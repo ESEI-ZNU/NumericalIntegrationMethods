@@ -1,20 +1,80 @@
-﻿// NumericalIntegrationMethodsCore.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#include <cmath>
+#include <ctime>
+#define f(x) exp(-x*-x)
+using namespace std;
 
-#include <iostream>
+double simpsonsRule(double a, double b, int n);
+double mainSimpson();
+void rectangles();
+void trapezium();
 
 int main()
 {
-    std::cout << "Hello World!\n";
+link:int chooserepit, choosemethod;
+	double timeInSeconds;
+
+
+	cout << "	IntegrationMethods\n" << endl;
+	cout << " 1) Method of Rectangles\n";
+	cout << " 2) Method of Trapezium \n";
+	cout << " 3) Method of Simpson\n" << endl;
+uncorrect: cout << " Your chose: ";
+	cin >> choosemethod;
+	cout << endl << endl;
+
+	if (choosemethod == 1)
+	{
+		cout << "	Method of Rectangles\n" << endl << endl;
+		clock_t startTime = clock();
+		rectangles();
+		clock_t endTime = clock();
+		clock_t clockTicksTaken = endTime - startTime;
+		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
+		cout << "Execution of this method took " << timeInSeconds << " seconds" << endl << endl;
+	}
+
+	else if (choosemethod == 2)
+	{
+		cout << "	Method of Trapezium\n" << endl << endl;
+		clock_t startTime = clock();
+		trapezium();
+		clock_t endTime = clock();
+		clock_t clockTicksTaken = endTime - startTime;
+		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
+		cout << "Execution of this method took " << timeInSeconds << " seconds" << endl << endl;
+	}
+
+	else if (choosemethod == 3)
+	{
+		cout << "	Method of Simpson\n" << endl << endl;
+		clock_t startTime = clock();
+		mainSimpson();
+		clock_t endTime = clock();
+		clock_t clockTicksTaken = endTime - startTime;
+		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
+		cout << "Execution of this method took " << timeInSeconds << " seconds" << endl << endl;
+	}
+
+	else
+	{
+		cout << " Choose the correct option\n" << endl << endl;
+		goto uncorrect;
+	}
+
+	cout << " Start over?" << endl << endl
+		<< " 1 - Yes" << endl
+		<< " 2 - No" << endl << endl
+		<< " Your chose: ";
+	cin >> chooserepit;
+	cout << endl << endl;
+	if (chooserepit == 1) {
+		cout << endl;
+		goto link;
+	}
+	else
+	{
+		cout << " You have chosen to end work with the program\n" << endl << endl;
+		system("pause");
+	}
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
