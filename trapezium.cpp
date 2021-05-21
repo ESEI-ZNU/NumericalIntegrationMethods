@@ -1,8 +1,15 @@
 #include<iostream>
 #include<math.h>
-#define f(x) exp(-x*-x)
-using namespace std;
 
+#define f(x) exp(-x*-x)
+
+using namespace std;
+/// <summary>
+///    <para> Method of Trapezium </para>
+/// </summary>
+///<return>
+///    <para> Turning code </para>
+/// </return>
 void trapezium()
 {
 	float lower, upper, integration = 0.0, stepSize, k, subInterval;
@@ -28,9 +35,4 @@ void trapezium()
 	integration = integration * stepSize / 2;
 
 	cout << endl << "Integration = " << integration;
-}
-
-int main()
-{
-	trapezium();
 }

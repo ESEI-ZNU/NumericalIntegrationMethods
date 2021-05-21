@@ -2,11 +2,17 @@
 #include<cmath>
 using namespace std;
 
-double f(double x)
-{
-	return exp(-x * -x); 
-}
+#define f(x) exp(-x*-x)
 
+/// <summary>
+///    <para> Simpson's calculating function </para>
+/// </summary>
+/// <param name=''> Variable: a - left border</param>
+/// <param name=''> Variable: b - right border</param>
+/// <param name=''> Variable: n - number of subintervals: default(n = 2) </param>
+///<return>
+///    <para> Turning code </para>
+/// </return>
 double simpsonsRule(double a, double b, int n) {
 	double h = 0; 
 	double ifx = 0;
@@ -27,6 +33,12 @@ double simpsonsRule(double a, double b, int n) {
 	return ifx;
 }
 
+/// <summary>
+///    <para> Simpson's method </para>
+/// </summary>
+///<return>
+///    <para> Return function, function: simpsonsRule(a, b, n) </para>
+/// </return>
 double mainSimpson() {
 	int choose;
 
@@ -55,9 +67,4 @@ double mainSimpson() {
 	} while (choose == 1);
 
 	return choose;
-}
-
-int main()
-{
-	mainSimpson();
 }

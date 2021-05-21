@@ -2,11 +2,14 @@
 #include <math.h>
 using namespace std;
 
-float f(float x)
-{
-	return exp(-x * -x);
-}
+#define f(x) exp(-x*-x)
 
+/// <summary>
+///    <para> Method of Rectangles </para>
+/// </summary>
+///<return>
+///    <para> Turning code </para>
+/// </return>
 void rectangles()
 {
 	float a, b;
@@ -28,9 +31,4 @@ void rectangles()
 	}
 
 	cout << "Integral is equal to: " << rect_integ << endl;
-}
-
-int main()
-{
-	rectangles();
 }

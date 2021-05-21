@@ -1,7 +1,9 @@
 ﻿#include <iostream>
 #include <cmath>
 #include <ctime>
+
 #define f(x) exp(-x*-x)
+
 using namespace std;
 
 double simpsonsRule(double a, double b, int n);
@@ -9,6 +11,12 @@ double mainSimpson();
 void rectangles();
 void trapezium();
 
+/// <summary>
+///    <para> Main function of programs </para>
+/// </summary>
+///<return>
+///    <para> Turning code </para>
+/// </return>
 int main()
 {
 link:int chooserepit, choosemethod;
