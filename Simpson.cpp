@@ -1,70 +1,31 @@
+
 #include<iostream>
 #include<cmath>
-using namespace std;
 
 #define f(x) exp(-x*-x)
 
-/// <summary>
-///    <para> Simpson's calculating function </para>
-/// </summary>
-/// <param name=''> Variable: a - left border</param>
-/// <param name=''> Variable: b - right border</param>
-/// <param name=''> Variable: n - number of subintervals: default(n = 2) </param>
-///<return>
-///    <para> Turning code </para>
-/// </return>
-double simpsonsRule(double a, double b, int n) {
-	double h = 0; 
-	double ifx = 0;
+using namespace std;
 
-	h = abs(b - a) / n;
+void mainSimpson() {
 
-	ifx = ifx + f(a) + f(b); 
+        int n;
+        float a, b;
+        cout << "\nEnter lower limit of integration: ";
+        cin >> a;
+        cout << "Enter upper limit of integration: ";
+        cin >> b;
+        cout << "Enter number of sub intervals: ";
+        cin >> n;
+   
+        const double width = (b-a)/n;
 
-	for (double i = a + h; i < b; i++) {
-		ifx = ifx + (4 * f(i));
-	}
+        double simpson_integral = 0;
+        for(int step = 0; step < n; step++) {
+            const double x1 = a + step*width;
+            const double x2 = a + (step+1)*width;
 
-	for (double j = a + (2 * h); j < b; j++) {
-		ifx = ifx + (2 * f(j));
-	}
+            simpson_integral += (x2-x1)/6.0*(f(x1) + 4.0*f(0.5*(x1+x2)) + f(x2));
+        }
 
-	ifx = ifx * h / 3; //розрахункова формула Сімпсона при інтегруванні на відрізку [a, b]
-	return ifx;
-}
-
-/// <summary>
-///    <para> Simpson's method </para>
-/// </summary>
-///<return>
-///    <para> Return function, function: simpsonsRule(a, b, n) </para>
-/// </return>
-double mainSimpson() {
-	int choose;
-
-	cout << "Task: to implement methods of numerical integration on a user-specified interval." << endl << "Simpson's method." << endl; 
-	
-	do {
-		double a, b; 
-		int n = 2; 
-		cout << "\nEnter a value for the left border: ";
-		cin >> a;
-		cout << endl << "Enter a value for the right border: ";
-		cin >> b;
-		while (a > b)
-		{
-			cout << "The left border must be less than the right." << endl << "Enter new value: ";
-			cin >> b;
-		} 
-		if (n % 2 == 0) 
-			cout << endl << "The definite integral value: " << simpsonsRule(a, b, n) << endl;
-		else
-			cout << "Error! " << "The value must be paired." << endl;
-		cout << "\nDo you want to start over?" << endl; 
-		cout << "1) - Yes, 2) - No" << endl;
-		cout << "Your choice: ";
-		cin >> choose;
-	} while (choose == 1);
-
-	return choose;
-}
+        cout << "\nIntegration = " <<  simpson_integral << endl;
+    }
