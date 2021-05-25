@@ -4,31 +4,26 @@ using namespace std;
 
 #define f(x) exp(-x*-x)
 
-/// <summary>
-///    <para> Method of Rectangles </para>
-/// </summary>
-///<return>
-///    <para> Turning code </para>
-/// </return>
 void rectangles()
 {
-	float a, b;
-	int n;
+    float left, right;
+    int step;
 
-	cout << "Lower limit of integration a = ";
-	cin >> a;
-	cout << "Upper limit of integration b = ";
-	cin >> b;
-	cout << "Number of subintervals n = ";
-	cin >> n;
+    cout << "Enter lower limit of integration: ";
+    cin >> left;
+    cout << "Enter upper limit of integration: ";
+    cin >> right;
+    cout << "Enter number of sub intervals: ";
+    cin >> step;
 
-	float width = (b - a) / n;
-	float rect_integ = 0;
-	for (int step = 0; step < n; step++)
-	{
-		float x = a + step * width;
-		rect_integ += width * f(x + 0.5 * width);
-	}
-
-	cout << "Integral is equal to: " << rect_integ << endl;
+   
+    double sum = 0;
+    double runner;
+      
+    /* rectangular formula */
+    for(runner = left + step * 0.5; runner < right; runner += step)
+        sum += f(runner);
+    sum *= step;
+            
+    cout << "\nIntegration = " << sum << endl;
 }
