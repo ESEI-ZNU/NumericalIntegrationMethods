@@ -4,6 +4,9 @@ using namespace std;
 
 #define f(x) exp(-x*-x)
 
+/// <summary>
+///    <para> Method of Rectangles </para>
+/// </summary>
 void rectangles()
 {
     float left, right;
