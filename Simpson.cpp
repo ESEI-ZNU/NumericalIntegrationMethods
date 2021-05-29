@@ -6,6 +6,9 @@
 
 using namespace std;
 
+/// <summary>
+///    <para> Simpson's calculating function </para>
+/// </summary>
 void mainSimpson() {
 
         int n;
