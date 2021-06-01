@@ -15,10 +15,8 @@ void trapezium(double lowborder, double upborder, double subinterval)
 {
 	float integration = 0.0, stepSize, k;
 
-	//Calculation
 	stepSize = (upborder - lowborder) / subinterval; //Finding step size 
 
-	//Finding Integration Value
 	integration = f(lowborder) + f(upborder);
 	for (int i = 1; i <= subinterval - 1; i++)
 	{
