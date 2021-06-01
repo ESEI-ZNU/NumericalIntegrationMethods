@@ -1,11 +1,3 @@
-<<<<<<< Updated upstream
-#include<iostream>
-#include<math.h>
-
-#define f(x) exp(-x*-x)
-
-using namespace std;
-=======
 #include <iostream>
 #include <math.h>
 
@@ -13,18 +5,13 @@ using namespace std;
 
 using namespace std;
 
->>>>>>> Stashed changes
 /// <summary>
 ///    <para> Method of Trapezium </para>
 /// </summary>
 ///<return>
 ///    <para> Turning code </para>
 /// </return>
-<<<<<<< Updated upstream
-void trapezium()
-=======
 void trapezium(double lowborder, double upborder, double subinterval)
->>>>>>> Stashed changes
 {
 	float integration = 0.0, stepSize, k;
 
@@ -40,9 +27,5 @@ void trapezium(double lowborder, double upborder, double subinterval)
 	}
 	integration = integration * stepSize / 2;
 
-<<<<<<< Updated upstream
-	cout << endl << "Integration = " << integration;
-=======
 	cout << endl << "Integration = " << integration << endl;
->>>>>>> Stashed changes
 }
