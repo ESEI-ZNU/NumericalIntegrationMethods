@@ -6,10 +6,9 @@
 
 using namespace std;
 
-double simpsonsRule(double a, double b, int n);
-double mainSimpson();
-void rectangles();
-void trapezium();
+void mainSimpson(double lowborder, double upborder, double subinterval);
+void rectangles(double lowborder, double upborder, double subinterval);
+void trapezium(double lowborder, double upborder, double subinterval);
 
 /// <summary>
 ///    <para> Main function of programs </para>
@@ -20,8 +19,8 @@ void trapezium();
 int main()
 {
 link:int chooserepit, choosemethod;
-	double timeInSeconds;
-
+	double timeInSeconds, lowborder, upborder, subinterval;
+	
 
 	cout << "	IntegrationMethods\n" << endl;
 	cout << " 1) Method of Rectangles\n";
@@ -34,8 +33,17 @@ uncorrect: cout << " Your chose: ";
 	if (choosemethod == 1)
 	{
 		cout << "	Method of Rectangles\n" << endl << endl;
+
+		//input
+		cout << "Enter lower limit of integration: ";
+		cin >> lowborder;
+		cout << "Enter upper limit of integration: ";
+		cin >> upborder;
+		cout << "Enter number of sub intervals: ";
+		cin >> subinterval;
+
 		clock_t startTime = clock();
-		rectangles();
+		rectangles(lowborder, upborder, subinterval);
 		clock_t endTime = clock();
 		clock_t clockTicksTaken = endTime - startTime;
 		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
@@ -45,8 +53,17 @@ uncorrect: cout << " Your chose: ";
 	else if (choosemethod == 2)
 	{
 		cout << "	Method of Trapezium\n" << endl << endl;
+
+		//input
+		cout << "Enter lower limit of integration: ";
+		cin >> lowborder;
+		cout << "Enter upper limit of integration: ";
+		cin >> upborder;
+		cout << "Enter number of sub intervals: ";
+		cin >> subinterval;
+
 		clock_t startTime = clock();
-		trapezium();
+		trapezium(lowborder, upborder, subinterval);
 		clock_t endTime = clock();
 		clock_t clockTicksTaken = endTime - startTime;
 		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
@@ -56,8 +73,17 @@ uncorrect: cout << " Your chose: ";
 	else if (choosemethod == 3)
 	{
 		cout << "	Method of Simpson\n" << endl << endl;
+
+		//input
+		cout << "Enter lower limit of integration: ";
+		cin >> lowborder;
+		cout << "Enter upper limit of integration: ";
+		cin >> upborder;
+		cout << "Enter number of sub intervals: ";
+		cin >> subinterval;
+
 		clock_t startTime = clock();
-		mainSimpson();
+		mainSimpson(lowborder, upborder, subinterval);
 		clock_t endTime = clock();
 		clock_t clockTicksTaken = endTime - startTime;
 		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
