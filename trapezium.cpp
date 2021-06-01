@@ -8,9 +8,6 @@ using namespace std;
 /// <summary>
 ///    <para> Method of Trapezium </para>
 /// </summary>
-///<return>
-///    <para> Turning code </para>
-/// </return>
 void trapezium(double lowborder, double upborder, double subinterval)
 {
 	float integration = 0.0, stepSize, k;
