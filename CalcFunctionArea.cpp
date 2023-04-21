@@ -49,3 +49,12 @@ double CalcFunctionArea::withoutIntegrate(double a, double b, int n, int funcTyp
     }
     return result;
 }
+double CalcFunctionArea::integrateTrapezoidal(double a, double b, int n, int funcType) {
+    double h = (b - a) / n;
+    double sum = 0.5 * (getValueFunction(a, funcType) + getValueFunction(b, funcType));
+    for (int i = 1; i < n; i++) {
+        double x = a + i * h;
+        sum += getValueFunction(x, funcType);
+    }
+    return h * sum;
+}
