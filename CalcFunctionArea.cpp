@@ -58,3 +58,22 @@ double CalcFunctionArea::integrateTrapezoidal(double a, double b, int n, int fun
     }
     return h * sum;
 }
+
+double CalcFunctionArea::integrateSimpson(double a, double b, int n,int funcType) {
+        const double h = (b - a) / n;
+        double sum = 0;
+
+        sum = getValueFunction(a, funcType) + getValueFunction(b, funcType);
+        for (int i = 1; i <= n-1; i++)
+        {
+            double x = a + i * h;
+            if (i % 2 == 0) {
+                sum = sum + 2 * getValueFunction(x, funcType);
+            }
+            else {
+                sum = sum + 4 * getValueFunction(x, funcType);
+            }
+        }
+        sum = sum * (h / 3);
+        return (sum);
+    }
