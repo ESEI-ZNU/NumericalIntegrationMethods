@@ -7,10 +7,10 @@
 
 
 class CalcFunctionArea {
-public:
-    static double getValueFunction(double x, int funcType);
-    static double integrateTrapezoidal(double a, double b, int n, int funcType);
 private:
+    static double getValueFunction(double x, int funcType);
+public:
+    static double integrateTrapezoidal(double a, double b, int n, int funcType);
     static double withoutIntegrate(double a, double b, int n, int funcType);
 };
 
