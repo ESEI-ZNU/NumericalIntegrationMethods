@@ -72,7 +72,7 @@ int main() {
     cout << "Enter the number of line segments: ";
     cin >> n2;// вводимо кількість відрізків
  
-    double res = metod_trapecii(c, d, n2); // створюємо змінну , яку ініціалізуємо результатом обчисленного інтегралу
+    double res = metod_trapecii(c, d, n2); //   створюємо змінну , яку ініціалізуємо результатом обчисленного інтегралу
     cout << "Result: " << res << endl; // виводимо результат у консоль
     return 0;
 }
