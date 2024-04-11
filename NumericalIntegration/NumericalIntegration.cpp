@@ -77,7 +77,10 @@ public:
 		return sum_2 * h_2;// обчислює заданий інтеграл та повертає його значення
 	}
 };
-
+/// <summary>
+/// функція взаємодії з користувачем
+/// @author Kuzmenko Pyatnitsky
+/// </summary>
 void user(int metod, int function, double c , double d, double res, int n_2) 
 {
 	trapecia t;
@@ -130,7 +133,8 @@ void user(int metod, int function, double c , double d, double res, int n_2)
 	}
 }
 
-
+/// основна функція 
+/// @author Kuzmenko Pyatnitsky 
 int main() 
 {
 SetConsoleCP(1251);//встановлення кодування українських символів
