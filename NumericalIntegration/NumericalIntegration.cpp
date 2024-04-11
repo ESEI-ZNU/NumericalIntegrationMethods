@@ -40,39 +40,14 @@ double metod_trapecii(double c, double d, int n2)// функція для обр
 }
 
 
-int main() {
-    // Введення границь інтегрування та кількості прямокутників
-    double a, b;
-    int n;
-    cout << "Enter the lower limit of integration: ";// Виведення тексту
-    cin >> a;// Зчитування нижньої границі
-    cout << "Enter the upper limit of integration: ";// Виведення тексту
-    cin >> b;// Зчитування верхньої границі
-    cout << "Enter the number of rectangles: ";// Виведення тексту
-    cin >> n;// Зчитування кількості прямокутників
+int main() 
+{
+SetConsoleCP(1251);//встановлення кодування українських символів
+SetConsoleOutputCP(1251);//встановлення кодування українських символів
 
-    // Введення функції, яку потрібно інтегрувати (наприклад, x^2)
-    auto f = [](double x) { return x * x; };// Функція x^2
+int metod, function;// змінні для зберігання вибору користувача
+double c, d, res;// оголошення змінних c,d для зберігання нижньої межі та верхньої та результату
+int n_2;// оголошення змінної для зберігання кількості відрізків
 
-    // Виклик функції для обчислення інтегралу методом прямокутників
-    double integral = rectangular_integration(a, b, n, f);// Обчислення інтегралу
-
-    // Виведення результату
-    cout << "The integral of the function over the interval [" << a << ", " << b << "] is: " << integral << endl;// Виведення інтегралу
-    
-    double c, d;// оголошення змінних c,d для зберігання нижньої межі та верхньої відповідно
-    int n2;// оголошення змінної для зберігання кількості відрізків
-
-    cout << "----------------------------------------------" << endl;
-    cout << "We have f(x^3)" << endl;// відображаємо у консоль інтеграл який треба обчислити
-    cout << "Enter the lower limit of integration:"; 
-    cin >> c;// вводимо значення нижньої межі інтегралу
-    cout << "Enter the upper limit of integration: ";
-    cin >> d;// вводимо значення для верхньої межі інтегралу
-    cout << "Enter the number of line segments: ";
-    cin >> n2;// вводимо кількість відрізків
- 
-    double res = metod_trapecii(c, d, n2); //   створюємо змінну , яку ініціалізуємо результатом обчисленного інтегралу
-    cout << "Result: " << res << endl; // виводимо результат у консоль
-    return 0;
+user( metod, function, c, d, res, n_2 );// виклик функції , яка взаємодіє з користувачем
 }
