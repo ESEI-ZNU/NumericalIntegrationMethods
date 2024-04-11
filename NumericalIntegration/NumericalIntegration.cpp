@@ -2,7 +2,7 @@
 
 
 #include <iostream> // Бібліотека введення виведення
-#include <functional> // Включення бібліотеки для функцій
+#include <Windows.h> // бібліотека для роботи з Windows
 
 using namespace std; // Використання простору імен std
 
